@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
+
 interface WeatherData {
   temperature: number;
   description: string;
@@ -82,10 +83,15 @@ const WeatherWidget: React.FC = () => {
               className="w-6 h-6"
             />
             <span className="text-[0.75rem]">{day.temp}°C</span>
+            
           </div>
+          
         ))}
+        
       </div>
     </div>
+    
+    
   );
 };
 

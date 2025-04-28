@@ -362,7 +362,9 @@ export default function FarmFloodRiskDashboard() {
   const handleLocationChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     const selectedLocation = farmLocations.find(loc => loc.name === e.target.value);
     setLocation(e.target.value);
-    setCoordinates({ lat: selectedLocation.lat, lon: selectedLocation.lon });
+    if (selectedLocation) {
+      setCoordinates({ lat: selectedLocation.lat, lon: selectedLocation.lon });
+    }
     
     // Visual feedback for location change
     setTooltipContent(`Weather data updated for ${e.target.value}`);
@@ -564,7 +566,7 @@ export default function FarmFloodRiskDashboard() {
                 <div className="flex flex-col items-center">
                   <div className="relative">
                     <CloudRain className="h-16 w-16 text-blue-500" />
-                    {weather?.precipitation > 10 && (
+                    {(weather?.precipitation ?? 0) > 10 && (
                       <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
                         <div className="h-6 flex space-x-1">
                           {[...Array(3)].map((_, i) => (

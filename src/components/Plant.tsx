@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Weather from './Weather'
 import {
   Calendar as CalendarIcon,
   Droplets,
@@ -352,9 +353,20 @@ const WeatherCalendar = () => {
         .animate-rain {
           animation: rain 0.5s infinite alternate;
         }
+  
+       
       `}</style>
+      <section>
+        <div>
+          <Weather />
+        </div>
+        </section>
     </div>
+  
+   
+   
   );
 };
+
 
 export default WeatherCalendar;

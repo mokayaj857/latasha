@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Navigate } from 'react-router-dom';
+
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { 
   Droplets, Home, Calendar, Map, Cloud, Settings, Menu, X, Sun, Moon, 
@@ -186,6 +188,7 @@ const HomePage = () => {
           >
             <Droplets size={60} className="text-blue-500" />
           </motion.div>
+          
           <motion.h2 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -194,6 +197,7 @@ const HomePage = () => {
           >
             Farm Flood Risk Manager
           </motion.h2>
+          
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
@@ -631,14 +635,16 @@ const HomePage = () => {
                 >
                   View Flood Risks
                 </motion.button>
+                <a href="/home">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-6 py-3 bg-blue-700 text-white font-medium rounded-xl shadow-lg"
-                  onClick={() => setActiveSection('map')}
+                  onClick={() => setActiveSection('./kenya')}
                 >
                   Explore Farm Map
                 </motion.button>
+                </a>
               </motion.div>
             </div>
             
@@ -672,11 +678,14 @@ const HomePage = () => {
             label="Check Flood Risk" 
             onClick={() => setActiveSection('flood')}
           />
-          <QuickActionButton 
+           {/* <a href="/Plant"> */}
+           <QuickActionButton 
             icon={<Calendar size={24} />} 
             label="Schedule Tasks" 
-            onClick={() => setActiveSection('calendar')}
+            onClick={() => setActiveSection('./plant')}
+          
           />
+           {/* </a> */}
           <QuickActionButton 
             icon={<Map size={24} />} 
             label="View Farm Map" 
@@ -790,8 +799,8 @@ const HomePage = () => {
   // Content renderer based on active section
   const renderContent = () => {
     switch (activeSection) {
-      case 'home':
-        return <HomeContent />;
+      case 'calendar':
+        return <Navigate to="/plant" replace />;
       case 'calendar':
         return (
           <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-lg`}>
@@ -800,15 +809,9 @@ const HomePage = () => {
             {/* <CalendarPlanner /> */}
           </div>
         );
+        case 'flood':
+          return <Navigate to="/hero" replace />;
       case 'flood':
-        return (
-          <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-lg`}>
-            <h2 className="text-xl font-bold mb-4">Flood Risk Manager</h2>
-            <p className="text-gray-500 dark:text-gray-400">Flood risk manager component would be loaded here</p>
-            {/* <FloodRiskManager /> */}
-          </div>
-        );
-      case 'map':
         return (
           <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-lg`}>
             <h2 className="text-xl font-bold mb-4">Farm Map</h2>
@@ -816,14 +819,8 @@ const HomePage = () => {
             {/* <FarmMap /> */}
           </div>
         );
-      case 'weather':
-        return (
-          <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-lg`}>
-            <h2 className="text-xl font-bold mb-4">Weather Recommendations</h2>
-            <p className="text-gray-500 dark:text-gray-400">Weather recommendations component would be loaded here</p>
-            {/* <WeatherRecommendations /> */}
-          </div>
-        );
+        case 'weather':
+          return <Navigate to="/kenya" replace />;
       case 'settings':
         return (
           <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-lg`}>
@@ -832,6 +829,17 @@ const HomePage = () => {
             {/* <SettingsPanel /> */}
           </div>
         );
+      
+      case 'map':
+        return <Navigate to="/home" replace />;
+    case 'map':
+      return (
+        <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-lg`}>
+          <h2 className="text-xl font-bold mb-4">Farm Map</h2>
+          <p className="text-gray-500 dark:text-gray-400">Farm map component would be loaded here</p>
+          {/* <FarmMap /> */}
+        </div>
+      );
       default:
         return <HomeContent />;
     }
