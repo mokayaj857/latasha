@@ -1401,14 +1401,16 @@ export default function SignupPage() {
                 </select>
               </div>
               
-              <div className="pt-2">
+            <div className="pt-2">
+              <a href="/">
                 <button
-                  type="submit"
+                  type="button"
                   className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-medium py-3 px-4 rounded-lg hover:from-emerald-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-white/10 transition-all shadow-lg hover:shadow-emerald-500/20"
                 >
-                  Register Farm
+                  Register 
                 </button>
-              </div>
+              </a>
+            </div>
               
               <p className="text-xs text-white/70 text-center">
                 By registering, you agree to our <a href="#" className="text-emerald-300 hover:underline">Terms of Service</a> and <a href="#" className="text-emerald-300 hover:underline">Privacy Policy</a>.

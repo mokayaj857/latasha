@@ -7,6 +7,7 @@ import Kenya from "./components/Kenya";
 import Weather from "./components/Weather";
 import Plant from "./components/Plant";
 import Login from "./components/Login";
+import Chatbit from "./components/Chatbit";
 
 const App = () => {
   return (
@@ -15,19 +16,21 @@ const App = () => {
         
         
         {/* Qrcode under Testimonials */}
-        <Route path="/" element={<Hero />} /> 
-        <Route path="home" element={<Home />} />
+        <Route path="chatbot" element={<Chatbot />} />
+        <Route path="hero" element={<Hero />} /> 
+        <Route path="/" element={<Home />} />
         <Route path="kenya" element={<Kenya />} />
         <Route path="weather" element={<Weather />} />
         <Route path="plant" element={<Plant />} />
         <Route path="login" element={<Login />} />
+        <Route path="chatbit" element={<Chatbit />} />
         
         
         {/* <Route path="weather" element={<Weather />} /> */}
         {/* <Route path="kenya" element={<Kenya />} /> */}
         {/* <Route path="home" element={<Home />} /> */}
       
-        <Route path="chatbot" element={<Chatbot />} />
+        
         {/* <Route path="chatbot" element={<Chatbot />} /> */}
         
         

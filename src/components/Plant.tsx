@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Weather from './Weather'
+import Chatbit from './Chatbit';
 import {
   Calendar as CalendarIcon,
   Droplets,
@@ -356,12 +357,19 @@ const WeatherCalendar = () => {
   
        
       `}</style>
+      
       <section>
         <div>
           <Weather />
         </div>
         </section>
+        <section>
+        <div>
+          <Chatbit />
+        </div>
+        </section>
     </div>
+    
   
    
    

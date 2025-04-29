@@ -8,6 +8,7 @@ import Kenya from './components/Kenya';
 import Weather from './components/Weather';
 import Plant from './components/Plant';
 import Login from './components/Login';
+import Chatbit from './components/Chatbit';
 
 import './index.css';
 
@@ -42,10 +43,13 @@ const router = createBrowserRouter([
     element: <Chatbot/>,
   },
   {
-    path: "home",
+    path: "/",
     element: <Home />,
   },
-  
+  {
+    path: "chatbit",
+    element: <Chatbit />,
+  },
 
 
 ]);
